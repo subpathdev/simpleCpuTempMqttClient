@@ -20,3 +20,9 @@ The temperartue will be updated every 10 seconds.
 | ---- | ----- |
 | topic | $hw/events/device/\<id\>/twin/update |
 | message | {"Temp":{"actual":{"value":43.000},"metadata":{"type":"Updated"}}} |
+
+## Autostart
+I've created an systemd service file but yuou has to append the device id, which is specified by the cloud and the ip address or url of the MQTT broker.
+
+example: \<PATH TO binary\>main.sh 1209854234311-23af 127.0.0.1
+
