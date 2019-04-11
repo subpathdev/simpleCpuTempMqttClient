@@ -1,0 +1,10 @@
+[Unit]
+Description=sensor service
+
+[Service]
+User=sensor
+Type=simple
+ExecStart=/etc/sensor/simpleCpuTempMqttClient/main.sh
+
+[Install]
+WantedBy=multi-user.target
