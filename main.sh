@@ -16,11 +16,11 @@ id=$1
 ip=$2
 
 
-mosquitto_pub -h 192.168.99.1 -t "$hw/events/device/$id/state/update" -m '{"state":"online"}'
+mosquitto_pub -h $ip -t "$hw/events/device/$id/state/update" -m '{"state":"online"}'
 while true
 do
 	temp=$(sensors -Au | grep temp2_input | sed 's/temp2_input://' | sed 's/   //')
 	mes=$(echo '{"Temp":{"actual":{"value":'$temp'},"metadata":{"type":"Updated"}}}')
-	mosquitto_pub -h 192.168.99.1 -t "$hw/events/device/$id/twin/update"
+	mosquitto_pub -h $ip -t "$hw/events/device/$id/twin/update"
 	sleep 10s
 done
